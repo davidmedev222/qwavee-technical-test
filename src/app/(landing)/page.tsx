@@ -1,7 +1,9 @@
+import { Section } from '@/components'
+
 function HomePage() {
   return (
     <main>
-      <h1>¡Hello Word!</h1>
+      <Section />
     </main>
   )
 }

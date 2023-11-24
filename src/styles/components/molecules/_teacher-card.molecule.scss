@@ -1,0 +1,33 @@
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.teacher-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: $color-white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  &:hover {
+    outline: dotted 0.0625rem $color-black;
+    cursor: grab;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  &-header {
+    font-weight: 500;
+  }
+  &-title {
+    @include line-clamp(1);
+    @include text(base);
+  }
+  &-subtitle {
+    @include line-clamp(1);
+    @include text(sm);
+    color: $color-gray-500;
+    font-weight: 400;
+  }
+}

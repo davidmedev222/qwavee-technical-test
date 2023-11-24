@@ -1,0 +1,10 @@
+@use '../../utils/variables' as *;
+
+.card-list {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: $color-blue-50;
+  border-radius: 0.5rem;
+  height: fit-content;
+}
