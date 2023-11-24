@@ -1,0 +1,26 @@
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.section {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: $screen-xl;
+  margin: 0 auto;
+
+  &-title {
+    @include text(2xl);
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 500;
+    margin: 1rem 0;
+
+    @media screen and (min-width: $screen-md) {
+      @include text(4xl);
+      grid-column: 1 / -1;
+    }
+  }
+  @media screen and (min-width: $screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

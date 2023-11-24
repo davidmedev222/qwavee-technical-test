@@ -36,3 +36,13 @@
     @error "Unknown size #{$size}, please enter a value correct.";
   }
 }
+
+/// Mixin for applying line clamping.
+/// @param $number - The maximum number of lines an element should display.
+
+@mixin line-clamp($number) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number;
+}

@@ -1,0 +1,14 @@
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.dnd-card {
+  background-color: $color-white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+
+  &-description {
+    @include line-clamp(1);
+    @include text(base);
+    text-align: center;
+  }
+}
