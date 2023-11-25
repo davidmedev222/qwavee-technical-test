@@ -1,18 +1,23 @@
 import { TeacherCardList } from '@/components'
+import { Course } from '@/models'
 
-function CourseCard() {
+interface Props {
+  course: Course
+}
+
+function CourseCard({ course }: Props) {
   return (
     <article className='course-card'>
       <header className='course-card-header'>
         <span className='course-card-subtitle'>Course</span>
-        <h2 className='course-card-title'>Sociales</h2>
+        <h2 className='course-card-title'>{course.name}</h2>
         <p className='course-card-description'>
-          Mixto <span>Students +144</span>
+          {course.type} <span>Students +{course.totalStudents}</span>
         </p>
       </header>
       <footer className='course-card-footer'>
         <span className='course-card-subtitle'>Teachers</span>
-        <TeacherCardList />
+        <TeacherCardList courseID={course.id} courseName={course.name} />
       </footer>
     </article>
   )

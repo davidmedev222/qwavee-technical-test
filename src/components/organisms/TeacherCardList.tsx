@@ -1,13 +1,20 @@
 import { DndCard, TeacherCard } from '@/components'
+import { CourseName } from '@/models'
+import { getTeachersByCourseId } from '@/services'
 
-const teachers = Array.from({ length: 4 })
+interface Props {
+  courseID: string
+  courseName: CourseName
+}
 
-function TeacherCardList() {
+async function TeacherCardList({ courseID, courseName }: Props) {
+  const teachers = await getTeachersByCourseId(courseID)
+
   return (
     <ul className='card-list'>
-      {teachers.map((_, i) => (
-        <li key={i}>
-          <TeacherCard />
+      {teachers.map((teacher) => (
+        <li key={teacher.id}>
+          <TeacherCard teacher={teacher} courseName={courseName} />
         </li>
       ))}
       <li>

@@ -1,15 +1,15 @@
 import { CourseCard } from '@/components'
+import { getCourses } from '@/services'
 
-const teachers = Array.from({ length: 4 })
+async function CourseCardList() {
+  const courses = await getCourses()
 
-function CourseCardList() {
   return (
     <ul className='card-list'>
-      {teachers.map((_, i) => (
-        <li key={i}>
-          <CourseCard />
-        </li>
-      ))}
+      {courses.map((course) => {
+        const hasSubject = course.id !== '4'
+        return <li key={course.id}>{hasSubject && <CourseCard course={course} />}</li>
+      })}
     </ul>
   )
 }
