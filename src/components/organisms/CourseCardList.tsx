@@ -1,13 +1,14 @@
 'use client'
-import { CourseCard } from '@/components'
+import { CourseCard, CourseCardListSkeleton } from '@/components'
 import { getCourses } from '@/services'
+import { ERROR_CODES } from '@/utils'
 import useSWR from 'swr'
 
 function CourseCardList() {
   const { data: courses, error, isLoading } = useSWR('courses', getCourses, { revalidateOnFocus: false })
 
-  if (error) return <div>ERROR LIST COURSES</div>
-  if (isLoading) return <div>SKELETON LIST COURSES</div>
+  if (error) return <div className='card-list-error'>{ERROR_CODES[error.response.status]}</div>
+  if (isLoading) return <CourseCardListSkeleton quantity={3} />
 
   return (
     <ul className='card-list'>
