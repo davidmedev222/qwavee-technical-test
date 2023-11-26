@@ -1,5 +1,6 @@
 @use '../../utils/variables' as *;
 @use '../../utils/mixins' as *;
+@use '../../utils/animations' as *;
 
 .teacher-card {
   display: flex;
@@ -33,5 +34,34 @@
     @include text(sm);
     color: $color-gray-500;
     font-weight: 400;
+  }
+  &-dragging {
+    opacity: 0.5;
+  }
+  &-skeleton {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    animation: pulse 2000ms infinite ease-in-out;
+
+    &-header {
+      display: grid;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    &-title {
+      width: min(37.5vw, 12.5rem);
+      height: 1.5rem;
+      background-color: $color-gray-200;
+      border-radius: 0.5rem;
+    }
+    &-subtitle {
+      width: min(21.875vw, 8.75rem);
+      height: 1rem;
+      background-color: $color-gray-200;
+      border-radius: 0.5rem;
+    }
   }
 }

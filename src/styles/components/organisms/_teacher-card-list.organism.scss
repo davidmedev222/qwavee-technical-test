@@ -7,4 +7,17 @@
   background-color: $color-blue-50;
   border-radius: 0.5rem;
   height: fit-content;
+
+  &-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $color-red-50;
+    min-height: 15.5rem;
+  }
+  &-skeleton {
+    @extend .card-list;
+    background-color: $color-gray-50;
+  }
 }
