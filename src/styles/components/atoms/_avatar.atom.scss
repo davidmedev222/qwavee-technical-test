@@ -1,5 +1,12 @@
+@use '../../utils/variables' as *;
+
 .avatar {
   width: 3.75rem;
   height: 3.75rem;
   border-radius: 100%;
+
+  &-skeleton {
+    @extend .avatar;
+    background-color: $color-gray-200;
+  }
 }
